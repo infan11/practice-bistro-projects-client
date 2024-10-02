@@ -103,7 +103,8 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt=""
-                  src={profileIcon} />
+                  src={profileIcon}  className='image-zoom' />
+                  
               </div>
             </div>
             <ul
