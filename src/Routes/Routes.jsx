@@ -10,6 +10,7 @@ import OurMenu from "../Componenets/OurMenu/OurMenu/OurMenu";
 import OurShop from "../Componenets/OurShop/OurShop/OurShop";
 import Dashboard from "../Componenets/Dashboard/Dashboard/Dashboard";
 import ContactUs from "../Componenets/ContactUs/ContactUs/ContactUs";
+import ButtonShare from "../Componenets/Section/ButtonShare/ButtonShare";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs/>
+      },
+      {
+        path:"/button",
+        element: <ButtonShare/>
       }
     ]
 

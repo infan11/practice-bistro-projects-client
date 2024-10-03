@@ -1,3 +1,4 @@
+import ButtonShare from "../../Section/ButtonShare/ButtonShare";
 import Category from "../Category/Category";
 import ChefService from "../ChefService/ChefService";
 import FromOurMenu from "../FromOurMenus/FromOurMenu/FromOurMenu";
@@ -10,6 +11,7 @@ const Home = () => {
           <Category/>
           <ChefService/>
           <FromOurMenu/>
+       
         </div>
     );
 };

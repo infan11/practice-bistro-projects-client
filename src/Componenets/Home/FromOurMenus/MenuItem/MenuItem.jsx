@@ -16,7 +16,8 @@ const MenuItem = ({item}) => {
                 
                 </div>
                 <div>
-                    </div>        
+                    </div>     
+                       
         </div>
     );
 };

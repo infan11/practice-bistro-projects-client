@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../SectionTiltle/SectionTitle/SectionTitle";
 import MenuItem from "../MenuItem/MenuItem";
+import ButtonShare from "../../../Section/ButtonShare/ButtonShare";
 
 
 const FromOurMenu = () => {
@@ -24,8 +25,11 @@ const FromOurMenu = () => {
                      {
                           menu.map(item  => <MenuItem key={item.id} item={item}></MenuItem>)
                      }
+                        
                 </div>
+                <ButtonShare button={"VIEW  ALL  MENU"}/> 
             </div>
+            
         </div>
     );
 };
