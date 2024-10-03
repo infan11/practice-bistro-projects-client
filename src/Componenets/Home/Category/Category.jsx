@@ -12,7 +12,7 @@ import imageD from '../../../assets/home/slide4.jpg'
 import imageE from '../../../assets/home/slide5.jpg'
 const Category = () => {
     return (
-        <div className="px-12 ">
+        <div className="px-20  ">
             <SectionTitle heading={"---From 11:00am to 10:00pm---"} subHeading={"ORDER ONLINE"}></SectionTitle>
             <Swiper
                 slidesPerView={1}
