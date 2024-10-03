@@ -7,7 +7,7 @@ const Navbar = () => {
     <NavLink
       to="/"
       className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white "
+        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white  "
       }
     >
       HOME
@@ -15,7 +15,7 @@ const Navbar = () => {
     <NavLink
       to="/contactUs"
       className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white "
+        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white  "
       }
     >
       CONTACT US
@@ -23,7 +23,7 @@ const Navbar = () => {
     <NavLink
       to="/dashboard"
       className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white "
+        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white  "
       }
     >
       DASHBOARD
@@ -31,7 +31,7 @@ const Navbar = () => {
     <NavLink
       to="/ourMenu"
       className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white "
+        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white  "
       }
     >
       OUR MENU
@@ -39,7 +39,7 @@ const Navbar = () => {
     <NavLink
       to="/ourShop"
       className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white "
+        isPending ? "pending" : isActive ? "text-yellow-300" : "font-bold text-white  "
       }
     >
       OUR SHOP
@@ -70,9 +70,9 @@ const Navbar = () => {
             </ul>
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
               <div className="indicator">
-                <svg
+                <svg 
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -92,7 +92,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-yellow-300  ml-4  mr-4 font-bold " : " ml-4  mr-4   font-bold text-white "
+                isPending ? "pending" : isActive ? "text-yellow-300  ml-4  mr-4 font-bold " : " ml-4  mr-4   font-bold text-white  "
               }
             >
               SIGNIN
