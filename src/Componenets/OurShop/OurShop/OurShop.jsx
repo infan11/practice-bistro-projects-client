@@ -1,9 +1,12 @@
+import OurShopBanner from "../OurShopBanner/OurShopBanner";
+import OurShopCard from "../OurShopCard/OurShopCard";
 
 
 const OurShop = () => {
     return (
         <div>
-         This is ourshop page   
+         <OurShopBanner/>
+         <OurShopCard/>
         </div>
     );
 };
