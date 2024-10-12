@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../../../assets/home/chef-service.jpg'
 const ChefService = () => {
   return (
-    <div>
+    <div data-aos="fade-up">
       <div
         className="hero p-8  md:p-32 bg-fixed rounded-xl "
         style={{

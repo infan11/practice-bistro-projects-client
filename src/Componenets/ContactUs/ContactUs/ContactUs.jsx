@@ -1,8 +1,13 @@
+import ContactForm from "../ContactForm/ContactForm";
+import ContactLocation from "../ContactLocation/ContactLocation";
+import ContactUsBanner from "../ContactUsBanner/ContactUsBanner";
 
 const ContactUs = () => {
     return (
         <div>
-          This is Contact us Page  
+          <ContactUsBanner/>
+          <ContactLocation/>
+          <ContactForm/> 
         </div>
     );
 };

@@ -16,7 +16,7 @@ const FromOurMenu = () => {
            })
     }, [])
     return (
-        <div className="mt-10">
+        <div data-aos="fade-up" className="mt-10">
             <SectionTitle heading={"---Check it out---"} subHeading={"FROM OUR MENU"} />
 
             <div> 
