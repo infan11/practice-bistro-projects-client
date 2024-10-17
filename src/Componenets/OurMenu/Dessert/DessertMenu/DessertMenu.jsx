@@ -19,7 +19,7 @@ const DessertMenu = () => {
 
           <div> 
            
-              <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-4">
+              <div className="max-w-xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-4">
                    {
                         dessert.map(item  =>  <div>
                           <div>
