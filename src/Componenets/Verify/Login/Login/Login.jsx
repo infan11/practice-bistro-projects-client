@@ -6,18 +6,30 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../../Hooks/UseAuth/UseAuth';
 const Login = () => {
+    const {user,signIn} = useAuth();
+    const navgiate = useNavigate();
+    const from = location.state?.from?.pathname || "/"
     const capcharef = useRef(null)
     const [disabled, setDisabled] = useState(true);
     useEffect(() => {
         loadCaptchaEnginge(8)
     }, [])
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email , password)
+        .then(result => {
+            const Loginuser = result.user;
+              console.log(Loginuser);
+              navgiate(from, {replace : true})
+        })
     }
     const handleValidateCapcha = () => {
         const user_capcha_value = capcharef.current.value;
@@ -25,7 +37,7 @@ const Login = () => {
             setDisabled(false)
         }
         else {
-               setDisabled(true)
+            setDisabled(true)
         }
     }
 
@@ -35,7 +47,7 @@ const Login = () => {
                 backgroundImage: "url(https://i.ibb.co.com/ZWzZxx6/authentication.png)",
             }} className="hero  min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className=" w-full max-w-sm ">
+                    <div className=" w-full max-w-sm md:ml-28 ">
                         <p className='text-2xl font-bold text-center'>Login</p>
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
@@ -55,24 +67,25 @@ const Login = () => {
                                 <LoadCanvasTemplate />
                                 <input placeholder='Type here' ref={capcharef} name='capcha' className='border-2 p-2 w-full px-4' />
                             </div>
-                            <button onClick={handleValidateCapcha} className="btn btn-xs">VALIDATE</button>
+                            <button onClick={handleValidateCapcha} className="btn btn-xs text-yellow-500">VALIDATE</button>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                             <div className="form-control mt-6">
-                                <button  disabled={disabled} className="btn  bg-orange-300 font-bold text-white">Sign In</button>
-                            </div>
-                            <p className='text-orange-300  font-bold text-center '>New here? Create a New Account</p>
-                            <p className='text-center'>Or sign in with</p>
-                            <div className='text-center justify-center items-center flex gap-9 mt-3  text-2xl '>
-                                <FaFacebook />
-                                <FcGoogle />
-                                <FaGithub />
+                                <button disabled={disabled} className="btn  bg-orange-300 font-bold text-white">Sign In</button>
                             </div>
                         </form>
+                        <p className='text-orange-300  font-bold text-center '>New here? <Link to={"/register"}>Create a New Account</Link></p>
+                        <p className='text-center'>Or sign in with</p>
+                        <div className='text-center justify-center items-center flex gap-9 mt-3  text-2xl '>
+                            <FaFacebook />
+                            <FcGoogle />
+                            <FaGithub />
+                        </div>
+
                     </div>
                     <div className="text-center lg:text-left">
-                        <img src={image} className='mix-blend-screen' alt="" />
+                        <img src={image} className='mix-blend-screen  hidden md:block' alt="" />
                     </div>
                 </div>
             </div>

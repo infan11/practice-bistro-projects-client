@@ -10,6 +10,7 @@ import OurMenu from "../Componenets/OurMenu/OurMenu/OurMenu";
 import OurShop from "../Componenets/OurShop/OurShop/OurShop";
 import Dashboard from "../Componenets/Dashboard/Dashboard/Dashboard";
 import ContactUs from "../Componenets/ContactUs/ContactUs/ContactUs";
+import PrivateRoutes from "../Componenets/PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/ourMenu",
-        element: <OurMenu />
+        element:<PrivateRoutes> <OurMenu /></PrivateRoutes>
       },
       {
         path: "/ourShop",

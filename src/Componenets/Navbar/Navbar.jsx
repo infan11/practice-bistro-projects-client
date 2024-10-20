@@ -2,7 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import profileIcon from '../../assets/others/profile.png'
 import { LuMenuSquare } from "react-icons/lu";
+import useAuth from '../Hooks/UseAuth/UseAuth';
 const Navbar = () => {
+  const {user,logOut} = useAuth(null);
+  const handleLogout = () => {
+     logOut()
+     .then(() => {})
+    
+  }
   const navLinks = <>
     <NavLink
       to="/"
@@ -89,14 +96,25 @@ const Navbar = () => {
 
           </div>
           <div>
-            <NavLink
-              to="/login"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-yellow-300  ml-4  mr-4 font-bold " : " ml-4  mr-4   font-bold text-white  "
-              }
-            >
-              SIGNIN
-            </NavLink>
+           {
+            user ? <> <NavLink onClick={handleLogout}
+        
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-yellow-300  ml-4  mr-4 font-bold " : " ml-4  mr-4   font-bold text-white  "
+            }
+          >
+            LOGOUT
+          </NavLink> </> :<>
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-yellow-300  ml-4  mr-4 font-bold " : " ml-4  mr-4   font-bold text-white  "
+            }
+          >
+            SIGNIN
+          </NavLink>
+            </>
+           }
           </div>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
