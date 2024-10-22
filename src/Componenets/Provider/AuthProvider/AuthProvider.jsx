@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         googleAuth,
         githubAuth,
         logOut,
-        updateProfile
+        upadateUserProfile
 
     }
     return (

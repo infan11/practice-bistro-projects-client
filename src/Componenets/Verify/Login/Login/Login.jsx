@@ -8,10 +8,11 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/UseAuth/UseAuth';
+import toast from 'react-hot-toast';
 const Login = () => {
-    const {user,signIn} = useAuth();
-    const navgiate = useNavigate();
-    const from = location.state?.from?.pathname || "/"
+    const { user, signIn, googleAuth, githubAuth } = useAuth();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname ||  "/ourShop" || "/dashBoard" || "/ourMenu" || "/";
     const capcharef = useRef(null)
     const [disabled, setDisabled] = useState(true);
     useEffect(() => {
@@ -24,12 +25,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        signIn(email , password)
-        .then(result => {
-            const Loginuser = result.user;
-              console.log(Loginuser);
-              navgiate(from, {replace : true})
-        })
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+
+                toast.success("Successfully Signin")
+                navigate(from, { replace: true });
+
+            })
+
     }
     const handleValidateCapcha = () => {
         const user_capcha_value = capcharef.current.value;
@@ -39,6 +44,26 @@ const Login = () => {
         else {
             setDisabled(true)
         }
+    }
+    const handleGoogle = () => {
+        googleAuth()
+            .then(result => {
+                const googleUser = result.user;
+                console.log(googleUser);
+                toast.success("Successfully Signin")
+
+                navigate(from, { replace: true })
+            })
+    }
+    const handleGithub = () => {
+        githubAuth()
+            .then(result => {
+                const githubUser = result.user;
+                console.log(githubUser);
+                toast.success("Successfully Sigin")
+
+                navigate(from, { replace: true })
+            })
     }
 
     return (
@@ -79,8 +104,8 @@ const Login = () => {
                         <p className='text-center'>Or sign in with</p>
                         <div className='text-center justify-center items-center flex gap-9 mt-3  text-2xl '>
                             <FaFacebook />
-                            <FcGoogle />
-                            <FaGithub />
+                            <button onClick={handleGoogle} className='image-zoom'>    <FcGoogle /></button>
+                            <button onClick={handleGithub} className='image-zoom'>   <FaGithub /></button>
                         </div>
 
                     </div>
