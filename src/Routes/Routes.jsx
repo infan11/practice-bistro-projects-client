@@ -11,6 +11,12 @@ import OurShop from "../Componenets/OurShop/OurShop/OurShop";
 import Dashboard from "../Componenets/Dashboard/Dashboard/Dashboard";
 import ContactUs from "../Componenets/ContactUs/ContactUs/ContactUs";
 import PrivateRoutes from "../Componenets/PrivateRoutes/PrivateRoutes";
+import Cart from "../Componenets/Dashboard/Cart/Cart";
+import AdminHome from "../Componenets/Dashboard/AdminHome/AdminHome";
+import AddItem from "../Componenets/Dashboard/AddItem/AddItem";
+import AllUsers from "../Componenets/Dashboard/AllUsers/AllUsers";
+import History from "../Componenets/Dashboard/History/History";
+import MenageBokings from "../Componenets/Dashboard/MenageBokings/MenageBokings";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +52,33 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <Dashboard />,
+    children : [
+      
+      {
+        path : "/dashboard/adminHome",
+        element : <AdminHome/>
+      },
+      {
+        path : "/dashboard/addItem",
+        element : <AddItem/>
+      },
+      {
+        path : "/dashboard/cart",
+        element : <Cart/>
+      },
+      {
+        path : "/dashboard/bookings",
+        element : <MenageBokings/>
+      },
+      {
+        path : "/dashboard/users",
+        element : <AllUsers/>
+      },
+       {
+        path : "/dashboard/History",
+        element : <History/>
+       }
+    ]
   }
 ]);
