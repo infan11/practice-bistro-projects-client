@@ -37,7 +37,7 @@ const Dashboard = () => {
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
   } to="/dashboard/cart">
                     <BsCart2 />
-                    My Cart<div className="badge badge-accent badge-outline">{cart.length}</div></NavLink>
+                    My Cart<div className="badge badge-secondary text-white">{cart.length}</div></NavLink>
             </li>
 
             <li>
@@ -52,7 +52,7 @@ const Dashboard = () => {
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
   } to="/dashboard/users">
                     <FaUsers></FaUsers>
-                    All Users<div className="badge badge-accent badge-outline">{user.length}</div></NavLink>
+                    All Users<div className="badge badge-accent badge-outline">{user?.length}</div></NavLink>
             </li>
             <li>
                 <NavLink  className={({ isActive, isPending }) =>

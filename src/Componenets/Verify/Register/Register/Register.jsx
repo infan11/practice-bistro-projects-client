@@ -10,6 +10,7 @@ import useAuth from '../../../Hooks/UseAuth/UseAuth';
 import { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import { data } from 'autoprefixer';
 const Register = () => {
 
 
@@ -69,7 +70,19 @@ const Register = () => {
             .then(result => {
                 const googleUser = result.user;
                 console.log(googleUser);
+                const userInfo = {
+                    email : result.user?.email,
+                    name :  result.user?.displayName
+                } 
+                axiosPublic.post("/users", userInfo)
+                .then(res => {
+                    console.log(res.data);
+                    if(res.data.insertedId){
                 toast.success("Successfully Signup")
+                        
+                    }
+                })
+                 
 
                 navigate(from, { replace: true })
             })
