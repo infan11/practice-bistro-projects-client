@@ -11,12 +11,15 @@ import { BsCart2 } from "react-icons/bs";
 import useCart from "../../Hooks/useCart";
 import useAuth from "../../Hooks/UseAuth/UseAuth";
 import { MdRestaurantMenu } from "react-icons/md";
+import useAdmin from "../../Hooks/useAdmin";
 const Dashboard = () => {
     const { user } = useAuth()
     const [cart] = useCart();
+    const [isAdmin] = useAdmin();
+
     const navLinks = <>
 
-        {user ? <>
+        {isAdmin ? <>
             <li>
                 <NavLink className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
@@ -54,6 +57,7 @@ const Dashboard = () => {
                     <FaUsers></FaUsers>
                     All Users<div className="badge badge-accent badge-outline">{user?.length}</div></NavLink>
             </li>
+            
             <li>
                 <NavLink  className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
@@ -71,6 +75,14 @@ const Dashboard = () => {
                         <FaHome></FaHome>
                         User Home</NavLink>
                 </li>
+                <li>
+                <NavLink  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
+  } to="/dashboard/cart">
+                    <BsCart2 />
+                    My Cart<div className="badge badge-secondary text-white">{cart.length}</div></NavLink>
+            </li>
+
                 <li>
                     <NavLink  className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"

@@ -9,11 +9,7 @@ const AllUsers = () => {
     const { data: users = []  , refetch} = useQuery({
         queryKey: ["users"],
         queryFn: async () => {
-            const res = await axiosSecure.get("/users" , {
-                headers : {
-                    authorization : `Bearer ${localStorage.getItem("access-token")}`
-                }
-            });
+            const res = await axiosSecure.get("/users");
             return res.data
         }
     })
@@ -94,15 +90,15 @@ const AllUsers = () => {
 
                                             </div>
                                         </td>
-                                        <td>
+                                        <td className="font-bold">
                                             {user.email}
                                             <br />
                                             <span className="badge badge-ghost badge-sm">{user._id}</span>
                                         </td>
                                         <td className="text-2"> {
-                                        user.role === "admin"  ? "Admin" : <button onClick={() => handleAdmin(user._id)} className="btn btn-ghost  font-bold text-xl"><MdAdminPanelSettings/> </button>}</td>
+                                        user.role === "admin"  ? "Admin" : <button onClick={() => handleAdmin(user._id)} className="btn btn-ghost text-orange-600 font-bold text-4xl"><MdAdminPanelSettings/> </button>}</td>
                                         <th>
-                                            <button onClick={() => handleDeleted(user._id)} className="btn btn-ghost  text-xl"><MdDeleteOutline /> </button>
+                                            <button onClick={() => handleDeleted(user._id)} className="btn btn-ghost text-orange-600 font-bold text-4xl "><MdDeleteOutline /> </button>
                                         </th>
                                     </tr>)
                                 }
