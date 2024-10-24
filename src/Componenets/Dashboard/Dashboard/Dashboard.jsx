@@ -115,6 +115,13 @@ const Dashboard = () => {
         <li>
             <NavLink  className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
+  } to="/ourShop">
+                <BsCart2 />
+                Our Shop</NavLink>
+        </li>
+        <li>
+            <NavLink  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
   } to="/contactUs">
                 <FaEnvelope></FaEnvelope>
                 Contact</NavLink>
