@@ -11,6 +11,7 @@ import { BsCart2 } from "react-icons/bs";
 import useCart from "../../Hooks/useCart";
 import useAuth from "../../Hooks/UseAuth/UseAuth";
 import { MdRestaurantMenu } from "react-icons/md";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import useAdmin from "../../Hooks/useAdmin";
 const Dashboard = () => {
     const { user } = useAuth()
@@ -49,6 +50,13 @@ const Dashboard = () => {
   } to="/dashboard/bookings">
                     <FaBook></FaBook>
                     Menage Bokings</NavLink>
+            </li>
+            <li>
+                <NavLink  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "bg-orange-500 p-3 text-white font-bold" : "hover:bg-orange-500 hover:text-white p-3 font-bold"
+  } to="/dashboard/menageItems">
+                    <AiOutlineMenuUnfold />
+                    Menage Items</NavLink>
             </li>
             <li>
                 <NavLink  className={({ isActive, isPending }) =>

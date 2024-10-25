@@ -5,6 +5,7 @@ import FoodCard from '../FoodCard/FoodCard';
 
 const OurShopCard = () => {
     const [menu] = useMenu();
+    console.log(menu);
     const salad = menu.filter(item => item.category === "salad");
     const pizza = menu.filter(item => item.category === "pizza");
     const soup = menu.filter(item => item.category === "soup");

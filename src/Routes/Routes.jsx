@@ -17,6 +17,9 @@ import AddItem from "../Componenets/Dashboard/AddItem/AddItem";
 import AllUsers from "../Componenets/Dashboard/AllUsers/AllUsers";
 import History from "../Componenets/Dashboard/History/History";
 import MenageBokings from "../Componenets/Dashboard/MenageBokings/MenageBokings";
+import MenageItems from "../Componenets/Dashboard/MenageItems/MenageItems";
+import UpdateItems from "../Componenets/Dashboard/MenageItems/UpdateItems/UpdateItems";
+import Payment from "../Componenets/Dashboard/Payment/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +57,15 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
     children : [
-      
+      {
+        path : "/dashboard/cart",
+        element : <Cart/>
+      },
+      {
+        path : "/dashboard/payment",
+        element : <Payment/>
+      },
+
       {
         path : "/dashboard/adminHome",
         element : <AdminHome/>
@@ -63,10 +74,7 @@ export const router = createBrowserRouter([
         path : "/dashboard/addItem",
         element : <AddItem/>
       },
-      {
-        path : "/dashboard/cart",
-        element : <Cart/>
-      },
+     
       {
         path : "/dashboard/bookings",
         element : <MenageBokings/>
@@ -76,9 +84,18 @@ export const router = createBrowserRouter([
         element : <AllUsers/>
       },
        {
-        path : "/dashboard/History",
+        path : "/dashboard/history",
         element : <History/>
-       }
+       },
+       {
+        path : "/dashboard/menageItems",
+        element : <MenageItems/>
+       },
+       {
+        path : "/dashboard/update/:id",
+        element : <UpdateItems></UpdateItems>, 
+        loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+       },
     ]
   }
 ]);
